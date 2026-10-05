@@ -3,7 +3,7 @@
 name: Build
 
 # Controls when the action will run.
-on: [push,pull_request,workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 
 env:
   HAXE_VERSION: 4.2.5
@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
@@ -29,24 +29,25 @@ jobs:
           haxelib run hmm install --quiet
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@main
+        uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:
           ndk-version: r21e
 
       - name: Setup Java JDK
-        uses: actions/setup-java@main
+        uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: 18
+          distribution: 'temurin'
+          java-version: 17
+          cache: 'gradle'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@main
+        uses: android-actions/setup-android@v3
 
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
 
-      - name: Setup Lime
+      - name: Configure Android
         run: |
           haxelib run lime setup -alias -y
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
@@ -60,7 +61,7 @@ jobs:
         run: haxelib run lime build android --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v4
         with:
-          name: androidBuild
+          name: Android
           path: export/release/android/bin/app/build/outputs/apk/debug
