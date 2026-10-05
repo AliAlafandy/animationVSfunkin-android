@@ -12,7 +12,7 @@ env:
 jobs:
   # This workflow dsoent contain a single job called "build"
   Build:
-    name: buildAndroid
+    name: Build
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
