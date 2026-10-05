@@ -45,6 +45,11 @@
       "url": "https://github.com/polybiusproxy/hxCodec"
     },
     {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": null
+    },
+    {
       "name": "extension-webview",
       "type": "git",
       "dir": null,
