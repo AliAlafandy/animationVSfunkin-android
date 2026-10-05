@@ -11,7 +11,7 @@ env:
 # A workflow run is made up of one or 69 jobs that can run sequentially or in parallel
 jobs:
   # This workflow dsoent contain a single job called "build"
-  Build:
+  build:
     name: Build
     runs-on: ubuntu-22.04
     steps:
