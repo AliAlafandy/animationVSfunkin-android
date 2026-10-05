@@ -34,15 +34,12 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-
- 	        SUtil.gameCrashCheck();
+		SUtil.gameCrashCheck();
 
 		if (stage != null)
 		{
 			init();
-		}
-		else
-		{
+		} else {
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 	}
@@ -76,15 +73,15 @@ class Main extends Sprite
 		#if !debug
 		initialState = TitleState;
 		#end
-	
+
 		ClientPrefs.loadDefaultKeys();
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen));
 
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		if(fpsVar != null) {
+		if (fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
 
