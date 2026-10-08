@@ -3,12 +3,12 @@
     {
       "name": "lime",
       "type": "haxelib",
-      "version": "8.1.2"
+      "version": "8.0.1"
     },
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": "9.3.3"
+      "version": "9.2.1"
     },
     {
       "name": "flixel",
@@ -35,7 +35,7 @@
       "type": "git",
       "dir": null,
       "ref": "main",
-      "url": "https://github.com/AlafandyPorting/hxcpp-0.6.3"
+      "url": "https://github.com/AlafandyPorting/hxcpp-0.7.3"
     },
     {
       "name": "hxCodec",
